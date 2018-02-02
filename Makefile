@@ -23,7 +23,8 @@ YACC?=bison
 YFLAGS?=-dv
 
 LLVM_CC_FLAGS=`llvm-config --cflags`
-LLVM_LINK_FLAGS=`llvm-config --libs --cflags --ldflags core analysis executionengine jit interpreter native`
+#LLVM_LINK_FLAGS=`llvm-config --libs --cflags --ldflags core analysis executionengine jit interpreter native`
+LLVM_LINK_FLAGS=`llvm-config --libs --cflags --ldflags core analysis executionengine mcjit interpreter native`
 
 ################################################################################
 # Default Target

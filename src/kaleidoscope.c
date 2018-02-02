@@ -22,7 +22,7 @@ int main(int argc, char **argv)
     LLVMExecutionEngineRef engine;
     
     LLVMInitializeNativeTarget();
-    LLVMLinkInJIT();
+    LLVMLinkInMCJIT();
 
     // Create execution engine.
     char *msg;
@@ -34,7 +34,7 @@ int main(int argc, char **argv)
     
     // Setup optimizations.
     LLVMPassManagerRef pass_manager =  LLVMCreateFunctionPassManagerForModule(module);
-    LLVMAddTargetData(LLVMGetExecutionEngineTargetData(engine), pass_manager);
+    //LLVMAddTargetData(LLVMGetExecutionEngineTargetData(engine), pass_manager);
     LLVMAddPromoteMemoryToRegisterPass(pass_manager);
     LLVMAddInstructionCombiningPass(pass_manager);
     LLVMAddReassociatePass(pass_manager);
